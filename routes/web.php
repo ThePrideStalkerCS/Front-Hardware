@@ -1,12 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Computer;
+
 
 Route::get('/', function () {
-    return view('home',['greeting'=>'Welcome to Front Hardware']);
+    
+
+
+    return view('home');
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/computers', function () {
+    return view('computers', [ 'computers' => Computer::all() ]);
 });
 
+Route::get('/computers/{id}', function ($id) {
+
+    $computer = Computer::find($id);
+
+    return view('computer', ['computer' => $computer]);
+});
