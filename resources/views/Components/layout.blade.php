@@ -21,7 +21,7 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
               <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-              <x-nav-link href="/computers" :active="request()->is('computers')">Computers</x-nav-link>
+              <x-nav-link href="/products" :active="request()->is('products')">Products</x-nav-link>
             </div>
           </div>
         </div>

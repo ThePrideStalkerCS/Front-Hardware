@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Computer;
-
+use App\Models\Product;
 
 Route::get('/', function () {
     
@@ -11,13 +10,14 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/computers', function () {
-    return view('computers', [ 'computers' => Computer::all() ]);
+Route::get('/products', function () {
+    $products=Product::with('category')->paginate(3);
+    return view('products', [ 'products' => $products  ]); 
 });
 
-Route::get('/computers/{id}', function ($id) {
+Route::get('/product/{id}', function ($id) {
 
-    $computer = Computer::find($id);
+    $product = Product::find($id);
 
-    return view('computer', ['computer' => $computer]);
+    return view('product', ['product' => $product]);
 });
